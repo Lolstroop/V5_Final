@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Central dos Filmes</title>
+        <!--
+
+        Template 2103 Central
+
+	    http://www.tooplate.com/view/2103-central
+
+        -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">
+        <!-- Google web font "Open Sans" -->
+        <link rel="stylesheet" href="font-awesome-4.5.0/css/font-awesome.min.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="slick/slick.css" />
+        <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
+        <link rel="stylesheet" href="css/tooplate-style.css">
+        <!-- tooplate style -->
+        
+
+        <!-- Script para esconder -->
+        <script src="js/ShowHide.js"></script>
+            <!-- load JS files -->
+        <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+        <script src="js/popper.min.js"></script>
+        <!-- https://popper.js.org/ -->
+        <script src="js/bootstrap.min.js"></script>
+        <!-- https://getbootstrap.com/ -->
+        <script type="text/javascript" src="slick/slick.min.js"></script>
+        <!-- Slick Carousel -->
+
+        <!-- Script para impossibilitar vizualização da pagina no navegador da microsoft, Internet Explorer -->
+        <script>
+            var renderPage = true;
+            if (navigator.userAgent.indexOf('MSIE') !== -1
+                || navigator.appVersion.indexOf('Trident/') > 0) {
+                /* Se o navegador detectado for o Microsoft Internet Explorer */
+                 alert("Impossivel vizualizar o site no navegador: Internet Explorer. Por favor utilize um navegador moderno como o Google Chrome ou Microsoft Edge");
+                renderPage = false;
+             }
+        </script>
+
+        <!-- Admin LogIn -->
+        <script>
+            $(document).ready(function(){
+                $('#Favoritos').on('click', function(){
+                    $('#tm-section-9').show();
+                })
+            })
+        </script>
+        <!-- Favoritos -->
+        <script>
+            $(document).ready(function(){
+                $('#LogIn').on('click', function(){
+                    $('#Admin').show();
+                })
+            })
+        </script>
+        <!-- Filmes -->
+        <script>
+            $(document).ready(function(){
+                $('#filmes').on('click', function(){
+                    $('#galeriafilmes').show();
+                    $('#galeriaestudios').hide();
+                    $('#galeriaactores').hide();
+                })
+            })
+        </script>
+        <!-- Estudios -->
+        <script>
+            $(document).ready(function(){
+                $('#estudios').on('click', function(){
+                    $('#galeriaestudios').show();
+                    $('#galeriafilmes').hide();
+                    $('#galeriaactores').hide();
+                })
+            })
+        </script>
+        <!-- Actores -->
+        <script>
+            $(document).ready(function(){
+                $('#actores').on('click', function(){
+                    $('#galeriaactores').show();
+                    $('#galeriafilmes').hide();
+                    $('#galeriaestudios').hide();
+
+                })
+            })
+        </script>
+
+    </head>
+<body>
+
+    <!-- Loader -->
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+        <div class="loader-section section-left"></div> <!-- Ao entrar naa pagina deslizamento para a esquerda -->
+        <div class="loader-section section-right"></div> <!-- Ao entrar naa pagina deslizamento para a direita -->
+    </div>
+    <div class="container">
+        <section class="tm-section-head" id="top">
+
+            <header id="header" class="text-center tm-text-gray">
+                <h1>Central dos Filmes</h1>
+                <p>Mundos inteiros na palma da sua mão</p>
+            </header>
+
+            <nav class="navbar narbar-light">
+                <a class="navbar-brand tm-text-gray" href="#">
+                    Menu <!-- Menu -->
+                </a>
+                <button type="button" id="nav-toggle" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#mainNav" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon">
+                        <i class="fa fa-navicon tm-fa-toggler-icon"></i>
+                    </span>
+                </button>
+                <div id="mainNav" class="collapse navbar-collapse tm-bg-white">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link tm-text-gray" href="#tm-section-2">Estúdios</a> 
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link tm-text-gray" href="#tm-section-3">Filmes em Cartaz</a> 
+                        <li class="nav-item">
+                            <a class="nav-link tm-text-gray" href="#tm-section-5">Top 15 2020</a> 
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link tm-text-gray" href="#tm-section-6">Cinemas</a> 
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link tm-text-gray" href="#tm-section-7">Área Pessoal</a> 
+                        </li>
+                        <li class="nav-item">
+                            <a id="Favoritos" class="nav-link tm-text-gray" href="#tm-section-9">Favoritos</a> 
+                        </li>
+                        <li class="nav-item">
+                            <a id="Log in" href="#modalLoginForm" data-toggle = "modal" data-target= "#modalLoginForm" class="nav-link">LogIn</a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="btnRegister" href="#services" class="nav-link">Registe-se</a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="Admin" class="nav-link tm-text-gray hidden" href="admin/index.html">Administração</a> 
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Log In Modal -->
+
+            <div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+
+                        <div class="modal-header text-center">
+                            <h4 class="modal-title w-100 font-weight-bold">Log In</h4>
+                            <button type="button" class="close1" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+
+                        <div class="md-body mx-3">
+
+                            <div class="md-form mb-5">
+                                <input type="email" id="defaultForm-email" class="form-control validate" required>
+                                <label data-error="wrong" data-success="right" for="defaultForm-pass">Email</label>
+                            </div>
+
+                            <div class="md-form mb-4">
+                                <input type="password" id="defaultForm-pass" class="form-control validate" required>
+                                <label data-error="wrong" data-success="right" for="defaultForm-pass">Password</label>
+                            </div>
+                        </div>
+
+                        <div class="modal-footer d-flex justify-content-center">
+                            <button id="LogIn" class="btn btn-default" type="submit" >Login</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Register Modal -->
+            <!--
+            <div class="modal fade" id="registerForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+
+                        <div class="modal-header text-center">
+                            <h4 class="modal-title w-100 font-weight-bold">Registe-se</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+
+                        <div class="md-body mx-3">
+
+                            <div class="md-form mb-5">
+                                <input type="name" id="defaultForm-name" class="form-control validate" placeholder="Primeiro e Último nome" required>
+                                <label data-error="wrong" data-success="right" for="defaultForm-pass">Nome</label>
+                            </div>
+
+                            <div class="md-form mb-4">
+                                <input type="email" id="defaultForm-email" class="form-control validate" placeholder="O seu Email" required>
+                                <label data-error="wrong" data-success="right" for="defaultForm-pass">Email</label>
+                            </div>
+
+                            <div class="md-form mb-3">
+                                <input type="password" id="defaultForm-pass" class="form-control validate" required>
+                                <label data-error="wrong" data-success="right" for="defaultForm-pass">Password</label>
+                            </div>
+
+                            <div class="md-form mb-2">
+                                <input type="tel" id="defaultForm-tel" class="form-control validate" placeholder="Não é obrigatório preencher">
+                                <label data-error="wrong" data-success="right" for="defaultForm-pass">Telefone</label>
+                            </div>
+
+
+
+                        </div>
+
+                        <div class="modal-footer d-flex justify-content-center">
+                            <button class="btn btn-default">Registar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            -->
+            <div class="navbar navbar-default navbar-fixed-top">
+                <a href="/index.html" class="navbar-brand"></a>
+                <botton class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mydropdown">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </botton>
+            </div>
+            
+        </section>
+        <!-- Slider de imagens -->
+        <section class="row" id="tm-section-1">  <!-- Secção do Slider -->
+            <div class="col-lg-12 tm-slider-col">
+                <div class="tm-img-slider">
+                    <div class="tm-img-slider-item" href="img/hollywood7.jpg">
+                        <p class="tm-slider-caption">Conheça mais acerca dos estúdios em Hollywood!</p> <!-- Texto em baixo da primeira imagem -->
+                        <img src="img/hollywood7.jpg" alt="Image" class="tm-slider-img">
+                    </div>
+                    <div class="tm-img-slider-item" href="img/buddygames1.jpg">
+                        <p class="tm-slider-caption">Buddy Games no Cartaz, Veja o Resto!</p> <!-- Texto em baixo da segunda imagem -->
+                        <img src="img/buddygames1.jpg" alt="Image" class="tm-slider-img">
+                    </div>
+                    <div class="tm-img-slider-item" href="img/michael.jpg">
+                        <p class="tm-slider-caption">Procure Realizadores e Atores como o Michael Angelo Covino!</p> <!-- Texto em baixo da terceira imagem -->
+                        <img src="img/michael.jpg" alt="Image" class="tm-slider-img">
+                    </div>
+                    <div class="tm-img-slider-item" href="img/cinema.jpg">
+                        <p class="tm-slider-caption">Saiba quais os Cinemas mais perto de si!</p> <!-- Texto em baixo da quarta imagem -->
+                        <img src="img/cinema.jpg" alt="Image" class="tm-slider-img">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tm-section-2 tm-section-mb" id="tm-section-2"> <!-- Secção Dos Estúdios -->
+            <div class="row">
+                <div class="col">  <!-- Posicionamento da primeira coluna -->
+                    <h2>Estúdios em Hollywood</h2> <!-- Titulo da primeira coluna -->
+                    <p>Aqui estão os mais famosos estúdios de Hollywood. Clique em 'Sobre' se quiser saber mais !</p>
+                    
+                    <ul class ="list-group list-group-flush"> <!-- Janela modal aqui para cada botão Sobre-->
+                        <li class="list-group-item">Universal Pictures
+                            <!-- Button Trigger-->
+                            <button type="button"  class="btn tm-btn-pad float-right" data-toggle="modal" data-target="#univModal">
+                                Sobre
+                            </button>
+                            <!-- Modal -->
+                            <div id="univModal" class="modal fade"  tabindex="-1" role="dialog" aria-labelledby="univModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="univModalLabel">Universal Pictures</h5>
+                                            <button type="button" class="close1" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <img src="img/univstudios.jpg">
+                                            <p>Morada: 100 Universal City Plaza, Universal City, CA 91608, United
+                                                States. Este estúdio, que é também um parque de diversões, foi fundado em 1912 e é o quarto 
+                                                mais antigo do mundo. 
+                                            </p>                                            
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn tm-btn-pad" data-dismiss="modal">Sair</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">Paramount Pictures
+                            <button type="button" class="btn tm-btn-pad float-right" data-toggle="modal" data-target="#paraModal">
+                                Sobre
+                            </button>
+                            <!-- Modal -->
+                            <div id="paraModal" class="modal fade"  tabindex="-1" role="dialog" aria-labelledby="paraModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="paraModalLabel">Paramount Pictures</h5>
+                                            <button type="button" class="close1" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <img src="img/paramount.jpg">
+                                            <p>Morada: 5555 Melrose Ave, Los Angeles CA. Foi fundado em 1914. Local da realização
+                                                do primeiro "big western" filme The Covered Wagon (1923) The Ten Commandments (1923) realizado
+                                                por Cecil B. DeMille.
+                                            </p>                                            
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn tm-btn-pad" data-dismiss="modal">Sair</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">Warner Bros Pictures
+                            <button type="button" class="btn tm-btn-pad float-right" data-toggle="modal" data-target="#warnModal">
+                                Sobre
+                            </button>
+                            <!-- Modal -->
+                            <div id="warnModal" class="modal fade"  tabindex="-1" role="dialog" aria-labelledby="warnModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="warnModalLabel">Warner Bros Pictures</h5>
+                                            <button type="button" class="close1" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <img src="img/warnerbros.jpg">
+                                            <p>Morada: 3400 Warner Blvd, Burbank, CA. Situado em Los Angeles. Começaram por
+                                                arranjar salas de cinema e depois seguiram para a produção de filmes. Perto de 1913
+                                                começaram a produzir os seus próprios filmes e em 1923 fundaram a Warner Brothers Pictures
+                                            </p>                                            
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn tm-btn-pad" data-dismiss="modal">Sair</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">Walt Disney Pictures
+                            <button type="button" class="btn tm-btn-pad float-right" data-toggle="modal" data-target="#waltModal">
+                                Sobre
+                            </button>
+                            <!-- Modal -->
+                            <div id="waltModal" class="modal fade"  tabindex="-1" role="dialog" aria-labelledby="waltModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="waltModalLabel">Walt Disney Pictures</h5>
+                                            <button type="button" class="close1" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <img src="img/waltdisney.jpg">
+                                            <p>Morada: 351 S Studio Dr, Lake Buena Vista, FL 32830, United States. Fundados em 1923,
+                                                num escritório pequeno foi onde Walt Disney e o seu irmão Roy produziram uma série 
+                                                de filmes coletivamente chamados de Alice Comedies.
+                                            </p>                                            
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn tm-btn-pad" data-dismiss="modal">Sair</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">Columbia Pictures   
+                            <button type="button" class="btn tm-btn-pad float-right" data-toggle="modal" data-target="#columbModal">
+                                Sobre
+                            </button>
+                            <!-- Modal -->
+                            <div id="columbModal" class="modal fade"  tabindex="-1" role="dialog" aria-labelledby="columbModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="columbModalLabel">Columbia Pictures</h5>
+                                            <button type="button" class="close1" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <img src="img/sunset.jpg">
+                                            <p> Morada: Thalberg Building, 10202 West Washington Boulevard, Culver City, California , United States. 
+                                                Fundada em 1912, continua a ser a maior infraestrutura dos EUA de broadcast televisivo e produção
+                                                cinematográfica.
+                                            </p>                                            
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn tm-btn-pad" data-dismiss="modal">Sair</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <!-- <a href="#tm-section-3" class="btn tm-btn-pad-2 float-right">Learn More</a> -->
+                </div>
+            </div>
+        </section>
+
+        <section id="tm-section-3" class="tm-section-3 tm-section-mb" > 
+            <h2>Filmes em Cartaz</h2>
+            <div class="row" >
+                <div class="col-md-6 tm-mb-sm-4 tm-2col-2 tm-slider-col">
+                    <!-- Freacky -->
+                    <div class="tm-img-slider">
+                        <div class="tm-img-slider-item" href="img/maxresdefault.jpg">
+                            <img src="img/maxresdefault.jpg" alt="Image" class="tm-slider-img">
+                            <div class ="tm-box-3">
+                                <h2>Freaky</h2>
+                                <p> Novo filme de comédia-terror realizado por Christopher Landon, com a participação
+                                de Vince Vaughn, Kathryn Newton, Katie Finneran, Celeste O'connor and Alan Ruck. Conta 
+                                a história de uma rapariga adolescente que sem querer, troca de corpo com um homem de 50 anos
+                                que é um assassíno em série e so tem 24 horas para recuperar o seu corpa antes de a trocar tornar-se permanente.</p>
+                                <div class="text-center">
+                                    <button class ="btn btn-big" type="submit" onclick="window.location.href= '#Freacky'">Trailer</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Sound of Metal -->
+                        <div class="tm-img-slider-item" href="img/soundofmetal.jpg">
+                            <img src="img/soundofmetal.jpg" alt="Image" class = "tm-slider-img">
+                            <div class ="tm-box-3">
+                                <h2>Sound Of Metal</h2>
+                                <p> Novo filme de drama realizado e co-escrito por Darius Marder com a participação de Riz Ahmed,
+                                    Olivia Cooke, Paul Raci, Lauren Ridloff e Mathieu Amalric. Conta a história de um jovem bateirista teme por seu
+                                    futuro quando percebe que está gradualmente ficando surdo.
+                                    Duas paixões estão em jogo: a música e sua namorada, que é integrante da mesma banda de heavy metal que o rapaz </p>
+                                <div class="text-center">
+                                    <button class ="btn btn-big" type="submit" onclick="window.location.href= '#SoundOfMetal'">Trailer</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Buddy Games -->
+                        <div class="tm-img-slider-item" href="img/soundofmetal.jpg">
+                            <img src="img/buddygames.jpg" alt="Image" class = "tm-slider-img">
+                            <div class ="tm-box-3">
+                                <h2>Buddy Games</h2>
+                                <p> Reunidos para jogar 'The Buddy Games', um grupo de amigos depara-se com quantidade absurda de desafios
+                                    físicos e mentais. Entretanto vão sarando feridas antigas, corrigindo erros antigos e tentam perceber
+                                    o verdadeiro significado de amizade... Ou morrem tentando. Filme realizado por Josh Duhamel com participação
+                                    de Dan Bakkedhal, Kevin Dillon, Josh Duhamel. </p>
+                                <div class="text-center">
+                                    <button class ="btn btn-big" type="submit" onclick="window.location.href= '#BuddyGames'">Trailer</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 tm-mb-sm-4 tm-2col-2 tm-slider-col">
+                    <div class="tm-img-slider">
+                        <!-- The Climb -->
+                        <div class="tm-img-slider-item" href="img/theclimb3.jpg">
+                            <img src="img/theclimb3.jpg" alt="Image" class="tm-slider-img">
+                            <div class ="tm-box-3">
+                                <h2>The Climb</h2>
+                                <p> Realizado por Michael Angelo Covino, The Climb trata-se de uma história de dois melhores amigos Kyle 
+                                    e Mike, até que a Mike vai para a cama com a noiva de Kyle. Conta uma história de um caminho doloroso e 
+                                    cheio de raiva que estes dois melhores amigos passam. Participação de Michael Angelo Covino, Kyle Marvin
+                                    Zina Wilde, Talia Balsam, Gayle Rankin, George Wendt.</p>
+                                <div class="text-center">
+                                    <button class ="btn btn-big" type="submit" onclick="window.location.href= '#TheClimb'">Trailer</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!--<div>    <button id ="close">X</button>     </div>-->
+                        <!-- Chick Fight -->
+                        <div class="tm-img-slider-item" href="img/chickfight2.jpg">
+                            <img src="img/chickfight2.jpg" alt="Image" class = "tm-slider-img">
+                            <div class ="tm-box-3">
+                                <h2>Chick Fight</h2>
+                                <p> Realizado por Paul Leyden, Chick Fight conta uma história de uma mulher, Ann Wyncomb, que é apresentada a um clube da luta underground, 
+                                    exclusivamente feminino, e fará de tudo para conquistar o sucesso lá dentro. Misturando elementos de luta e comédia, o filme promete ser 
+                                    bem agitado e divertido. Conta com a participação de Malin Akerman, Bella Thorne, Dulcé Sloan. </p>
+                                <div class="text-center">
+                                    <button class ="btn btn-big" type="submit" onclick="window.location.href= '#ChickFight'">Trailer</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- The Recon -->
+                        <div class="tm-img-slider-item" href="img/recon.jpg">
+                            <img src="img/recon.jpg" alt="Image" class = "tm-slider-img">
+                            <div class ="tm-box-3">
+                                <h2>Recon</h2>
+                                <p> A história de quatro soldados americanos que, depois de testemunhar um assassinato horrendo de um inocente
+                                    pela mão do seu Sargento, são enviados numa missão suicida,iniciarando assim a árdua escalada de uma montanha italiana. 
+                                    Realizado por Robert David Port e conta com a participação de Alexander Ludwig, RJ Fetherstonhaugh, Mitch Ainley</p>
+                                <div class="text-center">
+                                    <button class ="btn btn-big" type="submit" onclick="window.location.href= '#Recon'">Trailer</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Light Boxes -->
+            <div class="tm-box-3-lightboxes" id="tm-box-3-lightboxes">
+                <!-- Lightbox 01 -->
+                <div id="Freacky" class="tm-box-3-lightbox">
+                    <div class="tm-box-3-lightbox__content">
+                        <a href="#tm-section-mb" class='close'></a>
+                        <div class="iframe-container">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/EqPnIcDW9g0"
+                            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media;
+                            gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <!--<h3 class="tm-box-3-lightboxes__title">Texto dentro da lightbox</h3>
+                        <p class="tm-box-3-lightboxes__body">Content dentro da lightbox</p>-->
+                    </div>
+                </div>
+                <!-- Lightbox 02 -->
+                <div id="SoundOfMetal" class="tm-box-3-lightbox">
+                    <div class="tm-box-3-lightbox__content">
+                        <a href="#tm-section-mb" class="close"></a>
+                        <div class="iframe-container">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/VFOrGkAvjAE"
+                            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media;
+                            gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <!--<h3 class="tm-box-3-lightboxes__title">Texto dentro da lightbox</h3>
+                        <p class="tm-box-3-lightboxes__body">Content dentro da lightbox</p>-->
+                    </div>
+                </div>
+                <!-- Lightbox 03 -->
+                <div id="BuddyGames" class="tm-box-3-lightbox">
+                    <div class="tm-box-3-lightbox__content">
+                        <a href="#tm-section-mb" class="close"></a>
+                        <div class="iframe-container">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/iAf9B6Fuzwk"
+                            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media;
+                            gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <!--<h3 class="tm-box-3-lightboxes__title">Texto dentro da lightbox</h3>
+                        <p class="tm-box-3-lightboxes__body">Content dentro da lightbox</p>-->
+                    </div>
+                </div>
+                <!-- Lightbox 04 -->
+                <div id="TheClimb" class="tm-box-3-lightbox">
+                    <div class="tm-box-3-lightbox__content">
+                        <a href="#tm-section-mb" class="close"></a>
+                        <div class="iframe-container">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/Mr4MKhV5QVw"
+                            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media;
+                            gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <!--<h3 class="tm-box-3-lightboxes__title">Texto dentro da lightbox</h3>
+                        <p class="tm-box-3-lightboxes__body">Content dentro da lightbox</p>-->
+                    </div>
+                </div>
+                <!-- Lightbox 05 -->
+                <div id="ChickFight" class="tm-box-3-lightbox">
+                    <div class="tm-box-3-lightbox__content">
+                        <a href="#tm-section-mb" class="close"></a>
+                        <div class="iframe-container">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/wiAru48QZgw"
+                            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media;
+                            gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <!--<h3 class="tm-box-3-lightboxes__title">Texto dentro da lightbox</h3>
+                        <p class="tm-box-3-lightboxes__body">Content dentro da lightbox</p>-->
+                    </div>
+                </div>
+                <!-- Lightbox 06 -->
+                <div id="Recon" class="tm-box-3-lightbox">
+                    <div class="tm-box-3-lightbox__content">
+                        <a href="#tm-section-mb" class="close"></a>
+                        <div class="iframe-container">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/XtsmDe4fHmM"
+                            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media;
+                            gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="tm-section-4 tm-section-mb" id="tm-section-4">
+            <div class="row">
+            </div>
+        </section>
+
+        <section class="tm-section-5" id="tm-section-5">
+            <h2>Top 15 Melhores filmes de 2020</h2>
+            <p>Última atualização 20 de Novembro de 2020</p>
+            <div class="row">
+                <div class="col-lg-4 col-md-12 col-sm-12">
+                        <ul class="list-group">
+                            <li class="list-group-item"> 4º The Invisible Man</li>
+                            <li class="list-group-item"> 5º The Call of the Wild</li>
+                            <li class="list-group-item"> 6º The Way Back</li>
+                            <li class="list-group-item"> 7º Emma</li>
+                            <li class="list-group-item"> 8º Bad Boys for Life</li>
+                            <li class="list-group-item"> 9º Sonic The Film</li>
+                            <li class="list-group-item"> 10º The Hunt</li>
+                            <li class="list-group-item"> 11º The Old Guard</li>
+                            <li class="list-group-item"> 12º Birds Of Prey</li>
+                            <li class="list-group-item"> 13º Love Birds</li>
+                            <li class="list-group-item"> 14º Underwater</li>
+                            <li class="list-group-item"> 15º Bloodshot</li>
+                        </ul>
+                </div>
+
+                <div class="col-lg-8 col-md-12 col-sm-12 pl-lg-0">
+                    <div class="media tm-media">
+                        <img src="img/hamilton.jpg" class="img-responsive tm-media-img">
+                        <div class="media-body tm-box-5">
+                            <h2>1º Hamilton</h2>
+                            <p class="mb-0">A vida real de um dos fouding fatheres americanos e primeiro Secretary of the Treasury, Alexander Hamilton.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="media tm-media">
+                        <img src="img/onward1.jpg" class="img-responsive tm-media-img">
+                        <div class="media-body tm-box-5">
+                            <h2>2º Onward</h2>
+                            <p class="mb-0">Dois irmãos elfos vão numa aventura para trazer o seu pai de volta, apenas por um dia.</p>
+                        </div>
+                    </div>
+                    <div class="media tm-media">
+                        <img src="img/king.jpeg" class="img-responsive tm-media-img">
+                        <div class="media-body tm-box-5">
+                            <h2>3º King of Staten Island</h2>
+                            <p class="mb-0"> Passa o dia mocado e sonhando ser um artista de tatoos, após a morte do seu pai.
+                                Certos eventos da vida fizeram com que tivesse que seguir em frente. </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tm-section-9 hidden" id="tm-section-9">
+            <h2>Favoritos</h2>
+            <nav>
+                <ul>
+                    <li>
+                        <a id="filmes" href="#tm-section-9">Filmes</a>
+                    </li>
+
+                    <li>
+                        <a id="estudios" href="#tm-section-9">Estudios</a>
+                    </li>
+
+                    <li>
+                        <a id="actores" href="#tm-section-9">Actores</a>
+                    </li>
+                    
+                </ul>
+
+            </nav>
+            <div id="galeriafilmes" class="galeria-de-filmes hidden filtro">
+                <h3>Galeria de filmes</h3>
+                <div class="imagens-de-filmes">
+                    <a href="#galeriafilmes" ><img src="filmes/deadpool-2.jpg" alt=""></a>
+                    <a href="#galeriafilmes"><img src="filmes/Joker.jpg" alt=""></a>
+                    <a href="#galeriafilmes"><img src="filmes/Batman.jpg" alt=""></a>
+                    <a href="#galeriafilmes"><img src="filmes/seven.jpg" alt=""></a>
+                    <a href="#galeriafilmes"><img src="filmes/buddygames.jpg" alt=""></a> 
+                </div>
+            </div>
+            <div id="galeriaestudios" class="galeria-de-estudios hidden">
+                <h3>Galeria de estudios</h3>
+                <div class="imagens-de-estudios">
+                    <a href="#galeriaestudios" ><img src="estudios/dreamworks.png" alt=""></a>
+                    <a href="#galeriaestudios"><img src="estudios/metro-goldwyn-mayer.jpg" alt=""></a>
+                    <a href="#galeriaestudios"><img src="estudios/universal.jpg" alt=""></a>
+                    <a href="#galeriaestudios"><img src="estudios/disney.jpg" alt=""></a>
+                    <a href="#galeriaestudios"><img src="estudios/fox.jpg" alt=""></a> 
+                </div>
+            </div>
+            <div id="galeriaactores" class="galeria-de-actores hidden">
+                <h3>Galeria de actores</h3>
+                <div class="imagens-de-actores">
+                    <a href="#galeriaactores" ><img src="actores/johny-depp.jpg" alt=""></a>
+                    <a href="#galeriaactores"><img src="actores/Scarlett-Johansson.jpg" alt=""></a>
+                    <a href="#galeriaactores"><img src="actores/samuel-jackson.jpg" alt=""></a>
+                    <a href="#galeriaactores"><img src="actores/Jennifer-Lawrence.jpg" alt=""></a>
+                    <a href="#galeriaactores"><img src="actores/tom-hanks.jpg" alt=""></a> 
+                </div>
+            </div>
+        </section>
+
+        <section class="tm-section-6" id="tm-section-6">
+            <h2>Procure Cinemas Perto de Si </h2>
+            <div class="iframe-map">
+                <iframe src="https://www.google.com/maps/embed/v1/search?q=cinemas+around+me&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"></iframe>
+                <!-- <iframe width="1280" height="450" id="gmap_canvas" src="https://maps.google.com/maps?q=colombo%20cinema&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe> -->
+            </div>
+        </section>
+
+        <section class="tm-section-7" id="tm-section-7">
+            <div class="row">
+                <div class="col-lg-7 col-md-7 col-xs-12">
+                    <div class="contact_message">
+                        <form action="" method="post" class="contact-form">
+                            <div class="row mb-2">
+                                <div class="form-group col-xl-6">
+                                    <textarea id="lista_nome_filme" name="lista_nome_filme" class="form-control" rows="1" placeholder="Filme Favorito" required></textarea>
+                                </div>
+                                <div class="form-group col-xl-6 pl-xl-1">
+                                    <textarea id="lista_realizador" name="lista_realizador" class="form-control" rows="1" placeholder="Realizador/dora Favorito/a"></textarea>
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="form-group col-xl-6">
+                                    <textarea id="lista_ator" name="lista_ator" class="form-control" rows="1" placeholder="Ator/Atriz Favorito/a" required></textarea>
+                                </div>
+                                <div class="form-group col-xl-6 pl-xl-1">
+                                    <textarea id="lista_estudio" name="lista_estudio" class="form-control" rows="1" placeholder="Estúdio Favorito"></textarea>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn  tm-btn-submit float-right btn-big">Enviar</button>
+                            <button type="submit" class="btn  tm-btn-submit float-right btn-big">Alterar</button>
+
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-lg-5 col-md-5 col-xs-12 tm-contact-right">
+                    <div class="tm-address-box">
+                        <h2 class="mb-4">Mais sobre si...</h2>
+                        <p class="mb-5">Preencha o formulário para sabermos mais acerca de si! Poderá fazer alterações no botão 'Alterar'.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tm-section-8" id="tm-section-8">
+            <div class="row">
+                <div class="col-lg-7 col-md-7 col-xs-12">
+                    <div class="contact_message">
+                        <form action="" method="post" class="contact-form">
+                            <div class="row mb-2">
+                                <div class="form-group col-xl-6">
+                                    <input type="text" id="contact_name" name="contact_name" class="form-control" placeholder="Name" required/>
+                                </div>
+                                <div class="form-group col-xl-6 pl-xl-1">
+                                    <input type="email" id="contact_email" name="contact_email" class="form-control" placeholder="Email" required/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <textarea id="contact_message" name="contact_message" class="form-control" rows="6" placeholder="Message" required></textarea>
+                            </div>
+                            <button type="submit" class="btn  tm-btn-submit float-right btn-big">Enviar</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-lg-5 col-md-5 col-xs-12 tm-contact-right">
+                    <div class="tm-address-box">
+                        <h2 class="mb-4">Disponha das suas dúvidas!</h2>
+                        <p class="mb-5">Alternativamente esta é a morada dos nossos HQ's: </p>
+                        <address>
+                            6254 Lexington Ave,
+                            <br> Los Angeles CA 90038,
+                            <br> United States
+                        </address>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="mt-5">
+            <p class="text-center">Copyright © 2020 Mamutes lda. </p>
+        </footer>
+    </div>
+
+
+    <script>
+        function setCarousel() {
+            var slider = $('.tm-img-slider');
+
+            if (slider.hasClass('slick-initialized')) {
+                slider.slick('destroy');
+            }
+
+            if ($(window).width() > 991) {
+                // Slick carousel
+                slider.slick({
+                    autoplay: true,
+                    fade: true,
+                    speed: 800,
+                    infinite: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                });
+            } else {
+                slider.slick({
+                    autoplay: true,
+                    fade: true,
+                    speed: 800,
+                    infinite: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                });
+            }
+        }
+
+        $(document).ready(function () {
+            if (renderPage) {
+                $('body').addClass('loaded');
+            }
+
+            setCarousel();
+
+            $(window).resize(function () {
+                setCarousel();
+            });
+
+            // Close menu after link click
+            $('.nav-link').click(function () {
+                $('#mainNav').removeClass('show');
+            });
+
+            // https://css-tricks.com/snippets/jquery/smooth-scrolling/
+            // Select all links with hashes
+            $('a[href*="#"]')
+                // Remove links that don't actually link to anything
+                .not('[href="#"]')
+                .not('[href="#0"]')
+                .click(function (event) {
+                    // On-page links
+                    if (
+                        location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
+                        &&
+                        location.hostname == this.hostname
+                    ) {
+                        // Figure out element to scroll to
+                        var target = $(this.hash);
+                        target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                        // Does a scroll target exist?
+                        if (target.length) {
+                            // Only prevent default if animation is actually gonna happen
+                            event.preventDefault();
+                            $('html, body').animate({
+                                scrollTop: target.offset().top + 1
+                            }, 1000, function () {
+                                // Callback after animation
+                                // Must change focus!
+                                var $target = $(target);
+                                $target.focus();
+                                if ($target.is(":focus")) { // Checking if the target was focused
+                                    return false;
+                                } else {
+                                    $target.attr('tabindex', '-1'); // Adding tabindex for elements not focusable
+                                    $target.focus(); // Set focus again
+                                };
+                            });
+                        }
+                    }
+                });
+        });
+
+        
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.26.9/sweetalert2.all.min.js"></script>
+
+    <script src="js/myjs.js"></script>
+</body>
+</html>
